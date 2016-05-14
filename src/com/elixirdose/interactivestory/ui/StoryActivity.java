@@ -1,4 +1,9 @@
-package com.elixirdose.interactivestory;
+package com.elixirdose.interactivestory.ui;
+
+import com.elixirdose.interactivestory.R;
+import com.elixirdose.interactivestory.R.id;
+import com.elixirdose.interactivestory.R.layout;
+import com.elixirdose.interactivestory.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
