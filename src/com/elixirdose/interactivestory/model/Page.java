@@ -5,7 +5,27 @@ public class Page {
 	private String mText;
 	private Choice mChoice1;
 	private Choice mChoice2;
+	private boolean mIsFinal = false;
 	
+	
+	public Page(int mImageId, String mText, Choice mChoice1, Choice mChoice2) {
+		super();
+		this.mImageId = mImageId;
+		this.mText = mText;
+		this.mChoice1 = mChoice1;
+		this.mChoice2 = mChoice2;
+	}
+	
+	public Page(int mImageId, String mText) {
+		super();
+		this.mImageId = mImageId;
+		this.mText = mText;
+		this.mChoice1 = null;
+		this.mChoice2 = null;
+		this.mIsFinal = true;
+	}
+	
+
 	public int getmImageId() {
 		return mImageId;
 	}

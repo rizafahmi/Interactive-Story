@@ -3,6 +3,12 @@ package com.elixirdose.interactivestory.model;
 public class Choice {
 	private String mText;
 	private int mNextPage;
+	
+	public Choice(String mText, int mNextPage) {
+		super();
+		this.mText = mText;
+		this.mNextPage = mNextPage;
+	}
 	public String getmText() {
 		return mText;
 	}
