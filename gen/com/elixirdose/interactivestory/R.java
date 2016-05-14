@@ -33,7 +33,8 @@ public final class R {
         public static final int page6=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f080003;
+        public static final int action_settings=0x7f080004;
+        public static final int name=0x7f080003;
         public static final int nameEditText=0x7f080002;
         public static final int startButton=0x7f080001;
         public static final int titleImageView=0x7f080000;

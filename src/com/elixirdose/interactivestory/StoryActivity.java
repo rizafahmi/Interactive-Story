@@ -1,16 +1,29 @@
 package com.elixirdose.interactivestory;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class StoryActivity extends Activity {
 
+	private TextView mNameTextView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_story);
+		
+		mNameTextView = (TextView) findViewById(R.id.name);
+		
+		Intent mIntent = getIntent();
+		String name = mIntent.getStringExtra("name");
+		
+		mNameTextView.setText(name);
+		
+		
 	}
 
 	@Override

@@ -30,16 +30,17 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				String name = mNameEditText.getEditableText().toString();
-				Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
-				startStory();
+//				Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
+				startStory(name);
 			}
 		};
 		
 		mStartButton.setOnClickListener(mOnClickListener);
 	}
 	
-	private void startStory() {
+	private void startStory(String name) {
 		Intent mIntent = new Intent(this, StoryActivity.class);
+		mIntent.putExtra("name", name);
 		startActivity(mIntent);
 	}
 }
