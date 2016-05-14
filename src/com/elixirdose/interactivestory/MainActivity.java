@@ -1,6 +1,7 @@
 package com.elixirdose.interactivestory;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,9 +31,15 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				String name = mNameEditText.getEditableText().toString();
 				Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
+				startStory();
 			}
 		};
 		
 		mStartButton.setOnClickListener(mOnClickListener);
+	}
+	
+	private void startStory() {
+		Intent mIntent = new Intent(this, StoryActivity.class);
+		startActivity(mIntent);
 	}
 }
