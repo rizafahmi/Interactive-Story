@@ -26,6 +26,14 @@ public class Page {
 	}
 	
 
+	public boolean ismIsFinal() {
+		return mIsFinal;
+	}
+
+	public void setmIsFinal(boolean mIsFinal) {
+		this.mIsFinal = mIsFinal;
+	}
+
 	public int getmImageId() {
 		return mImageId;
 	}
