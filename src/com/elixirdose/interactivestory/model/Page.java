@@ -5,5 +5,31 @@ public class Page {
 	private String mText;
 	private Choice mChoice1;
 	private Choice mChoice2;
+	
+	public int getmImageId() {
+		return mImageId;
+	}
+	public void setmImageId(int mImageId) {
+		this.mImageId = mImageId;
+	}
+	public String getmText() {
+		return mText;
+	}
+	public void setmText(String mText) {
+		this.mText = mText;
+	}
+	public Choice getmChoice1() {
+		return mChoice1;
+	}
+	public void setmChoice1(Choice mChoice1) {
+		this.mChoice1 = mChoice1;
+	}
+	public Choice getmChoice2() {
+		return mChoice2;
+	}
+	public void setmChoice2(Choice mChoice2) {
+		this.mChoice2 = mChoice2;
+	}
+	
 
 }
