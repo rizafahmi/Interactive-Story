@@ -50,26 +50,41 @@ public class StoryActivity extends Activity {
 		Drawable drawable = getResources().getDrawable(page.getmImageId());
 		mImageView.setImageDrawable(drawable);
 		mTextView.setText(page.getmText());
-		mChoice1Button.setText(page.getmChoice1().getmText());
-		mChoice2Button.setText(page.getmChoice2().getmText());
 		
-		mChoice1Button.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				loadPage(page.getmChoice1().getmNextPage());
+		if ( page.ismIsFinal() ) {
+			mChoice1Button.setVisibility(View.INVISIBLE);
+			mChoice2Button.setText("Play Again");
+			mChoice2Button.setOnClickListener(new View.OnClickListener() {
 				
-			}
-		});
+				@Override
+				public void onClick(View v) {
+					finish();
+					
+				}
+			});
 		
-		mChoice2Button.setOnClickListener(new View.OnClickListener() {
+		} else {
+			mChoice1Button.setText(page.getmChoice1().getmText());
+			mChoice2Button.setText(page.getmChoice2().getmText());
 			
-			@Override
-			public void onClick(View v) {
-				loadPage(page.getmChoice2().getmNextPage());
+			mChoice1Button.setOnClickListener(new View.OnClickListener() {
 				
-			}
-		});
+				@Override
+				public void onClick(View v) {
+					loadPage(page.getmChoice1().getmNextPage());
+					
+				}
+			});
+			
+			mChoice2Button.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					loadPage(page.getmChoice2().getmNextPage());
+					
+				}
+			});
+		}
 		
 		
 	}
