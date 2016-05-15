@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,13 +45,33 @@ public class StoryActivity extends Activity {
 	}
 	
 	private void loadPage(int choice) {
-		Page page = mStory.getPage(choice);
+		final Page page = mStory.getPage(choice);
 		
 		Drawable drawable = getResources().getDrawable(page.getmImageId());
 		mImageView.setImageDrawable(drawable);
 		mTextView.setText(page.getmText());
 		mChoice1Button.setText(page.getmChoice1().getmText());
 		mChoice2Button.setText(page.getmChoice2().getmText());
+		
+		mChoice1Button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				loadPage(page.getmChoice1().getmNextPage());
+				
+			}
+		});
+		
+		mChoice2Button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				loadPage(page.getmChoice2().getmNextPage());
+				
+			}
+		});
+		
+		
 	}
 
 }
