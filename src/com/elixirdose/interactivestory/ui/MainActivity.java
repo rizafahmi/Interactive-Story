@@ -47,4 +47,10 @@ public class MainActivity extends Activity {
 		mIntent.putExtra("name", name);
 		startActivity(mIntent);
 	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mNameEditText.setText("");
+	}
 }

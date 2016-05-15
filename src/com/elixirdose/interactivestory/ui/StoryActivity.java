@@ -26,6 +26,7 @@ public class StoryActivity extends Activity {
 	private TextView mTextView;
 	private Button mChoice1Button;
 	private Button mChoice2Button;
+	private String mName;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class StoryActivity extends Activity {
 		
 		
 		Intent mIntent = getIntent();
-		String name = mIntent.getStringExtra("name");
+		mName = mIntent.getStringExtra("name");
 		
 		mImageView = (ImageView) findViewById(R.id.storyImageView);
 		mTextView = (TextView) findViewById(R.id.storyTextView);
@@ -49,7 +50,9 @@ public class StoryActivity extends Activity {
 		
 		Drawable drawable = getResources().getDrawable(page.getmImageId());
 		mImageView.setImageDrawable(drawable);
-		mTextView.setText(page.getmText());
+		String pageText = page.getmText();
+		pageText = String.format(pageText, mName);
+		mTextView.setText(pageText);
 		
 		if ( page.ismIsFinal() ) {
 			mChoice1Button.setVisibility(View.INVISIBLE);
