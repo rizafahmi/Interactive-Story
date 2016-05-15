@@ -4,15 +4,27 @@ import com.elixirdose.interactivestory.R;
 import com.elixirdose.interactivestory.R.id;
 import com.elixirdose.interactivestory.R.layout;
 import com.elixirdose.interactivestory.R.menu;
+import com.elixirdose.interactivestory.model.Page;
+import com.elixirdose.interactivestory.model.Story;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class StoryActivity extends Activity {
+	
+	private Story mStory = new Story();
+	
+	private ImageView mImageView;
+	private TextView mTextView;
+	private Button mChoice1Button;
+	private Button mChoice2Button;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,26 +35,22 @@ public class StoryActivity extends Activity {
 		Intent mIntent = getIntent();
 		String name = mIntent.getStringExtra("name");
 		
+		mImageView = (ImageView) findViewById(R.id.storyImageView);
+		mTextView = (TextView) findViewById(R.id.storyTextView);
+		mChoice1Button = (Button) findViewById(R.id.choice1Button);
+		mChoice2Button = (Button) findViewById(R.id.choice2Button);
 		
+		loadPage(0);
+	}
+	
+	private void loadPage(int choice) {
+		Page page = mStory.getPage(choice);
 		
+		Drawable drawable = getResources().getDrawable(page.getmImageId());
+		mImageView.setImageDrawable(drawable);
+		mTextView.setText(page.getmText());
+		mChoice1Button.setText(page.getmChoice1().getmText());
+		mChoice2Button.setText(page.getmChoice2().getmText());
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.story, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

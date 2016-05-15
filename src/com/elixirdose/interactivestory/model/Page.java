@@ -59,5 +59,6 @@ public class Page {
 		this.mChoice2 = mChoice2;
 	}
 	
+	
 
 }
